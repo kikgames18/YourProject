@@ -41,7 +41,7 @@ namespace YourProject.Forms
             this.labelFirstName.Name = "labelFirstName";
             this.labelFirstName.Size = new System.Drawing.Size(60, 19);
             this.labelFirstName.TabIndex = 0;
-            this.labelFirstName.Text = "First Name:";
+            this.labelFirstName.Text = "Имя:";
 
             // 
             // labelLastName
@@ -51,7 +51,7 @@ namespace YourProject.Forms
             this.labelLastName.Name = "labelLastName";
             this.labelLastName.Size = new System.Drawing.Size(61, 19);
             this.labelLastName.TabIndex = 1;
-            this.labelLastName.Text = "Last Name:";
+            this.labelLastName.Text = "Фамилия:";
 
             // 
             // labelPhoneNumber
@@ -61,7 +61,7 @@ namespace YourProject.Forms
             this.labelPhoneNumber.Name = "labelPhoneNumber";
             this.labelPhoneNumber.Size = new System.Drawing.Size(87, 19);
             this.labelPhoneNumber.TabIndex = 2;
-            this.labelPhoneNumber.Text = "Phone Number:";
+            this.labelPhoneNumber.Text = "Номер:";
 
             // 
             // labelEmail
@@ -71,7 +71,7 @@ namespace YourProject.Forms
             this.labelEmail.Name = "labelEmail";
             this.labelEmail.Size = new System.Drawing.Size(35, 19);
             this.labelEmail.TabIndex = 3;
-            this.labelEmail.Text = "Email:";
+            this.labelEmail.Text = "Почта:";
 
             // 
             // labelAddress
@@ -81,13 +81,13 @@ namespace YourProject.Forms
             this.labelAddress.Name = "labelAddress";
             this.labelAddress.Size = new System.Drawing.Size(48, 19);
             this.labelAddress.TabIndex = 4;
-            this.labelAddress.Text = "Address:";
+            this.labelAddress.Text = "Адрес:";
 
             // 
             // txtFirstName
             // 
             this.txtFirstName.Depth = 0;
-            this.txtFirstName.Hint = "";
+            this.txtFirstName.Hint = "Введите имя";
             this.txtFirstName.Location = new System.Drawing.Point(120, 20);
             this.txtFirstName.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtFirstName.Name = "txtFirstName";
@@ -97,13 +97,13 @@ namespace YourProject.Forms
             this.txtFirstName.SelectionStart = 0;
             this.txtFirstName.Size = new System.Drawing.Size(200, 23);
             this.txtFirstName.TabIndex = 0;
-            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged); // Обработчик события
+            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
 
             // 
             // txtLastName
             // 
             this.txtLastName.Depth = 0;
-            this.txtLastName.Hint = "";
+            this.txtLastName.Hint = "Введите фамилию";
             this.txtLastName.Location = new System.Drawing.Point(120, 60);
             this.txtLastName.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtLastName.Name = "txtLastName";
@@ -118,7 +118,7 @@ namespace YourProject.Forms
             // txtPhoneNumber
             // 
             this.txtPhoneNumber.Depth = 0;
-            this.txtPhoneNumber.Hint = "";
+            this.txtPhoneNumber.Hint = "Введите номер телефона";
             this.txtPhoneNumber.Location = new System.Drawing.Point(120, 100);
             this.txtPhoneNumber.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtPhoneNumber.Name = "txtPhoneNumber";
@@ -133,7 +133,7 @@ namespace YourProject.Forms
             // txtEmail
             // 
             this.txtEmail.Depth = 0;
-            this.txtEmail.Hint = "";
+            this.txtEmail.Hint = "Введите электронную почту";
             this.txtEmail.Location = new System.Drawing.Point(120, 140);
             this.txtEmail.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtEmail.Name = "txtEmail";
@@ -148,7 +148,7 @@ namespace YourProject.Forms
             // txtAddress
             // 
             this.txtAddress.Depth = 0;
-            this.txtAddress.Hint = "";
+            this.txtAddress.Hint = "Введите адрес";
             this.txtAddress.Location = new System.Drawing.Point(120, 180);
             this.txtAddress.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtAddress.Name = "txtAddress";
@@ -204,7 +204,7 @@ namespace YourProject.Forms
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Name = "AddClientForm";
-            this.Text = "Add Client";
+            this.Text = "Меню клиента";
         }
 
         // Обработчик для ограничения длины текста

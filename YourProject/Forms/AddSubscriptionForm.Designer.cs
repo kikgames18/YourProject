@@ -15,6 +15,11 @@ namespace YourProject.Forms
         private System.Windows.Forms.Label labelStatus;
         private System.Windows.Forms.Label labelStartDate;
         private System.Windows.Forms.Label labelEndDate;
+        private MaterialSkin.Controls.MaterialLabel labelClientID;
+        private MaterialSkin.Controls.MaterialLabel labelSubscriptionType;
+        private MaterialSkin.Controls.MaterialLabel labelStatusText;
+        private MaterialSkin.Controls.MaterialLabel labelStartDateText;
+        private MaterialSkin.Controls.MaterialLabel labelEndDateText;
 
         private void InitializeComponent()
         {
@@ -25,15 +30,68 @@ namespace YourProject.Forms
             this.dateTimePickerEndDate = new System.Windows.Forms.DateTimePicker();
             this.btnSave = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnCancel = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.labelStatus = new System.Windows.Forms.Label();
-            this.labelStartDate = new System.Windows.Forms.Label();
-            this.labelEndDate = new System.Windows.Forms.Label();
+            this.labelClientID = new MaterialSkin.Controls.MaterialLabel();
+            this.labelSubscriptionType = new MaterialSkin.Controls.MaterialLabel();
+            this.labelStatusText = new MaterialSkin.Controls.MaterialLabel();
+            this.labelStartDateText = new MaterialSkin.Controls.MaterialLabel();
+            this.labelEndDateText = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
+
+            // 
+            // labelClientID
+            // 
+            this.labelClientID.AutoSize = true;
+            this.labelClientID.Location = new System.Drawing.Point(30, 20);
+            this.labelClientID.Name = "labelClientID";
+            this.labelClientID.Size = new System.Drawing.Size(100, 19);
+            this.labelClientID.TabIndex = 0;
+            this.labelClientID.Text = "Идентификатор клиента:";
+
+            // 
+            // labelSubscriptionType
+            // 
+            this.labelSubscriptionType.AutoSize = true;
+            this.labelSubscriptionType.Location = new System.Drawing.Point(30, 50);
+            this.labelSubscriptionType.Name = "labelSubscriptionType";
+            this.labelSubscriptionType.Size = new System.Drawing.Size(100, 19);
+            this.labelSubscriptionType.TabIndex = 1;
+            this.labelSubscriptionType.Text = "Тип подписки:";
+
+            // 
+            // labelStatusText
+            // 
+            this.labelStatusText.AutoSize = true;
+            this.labelStatusText.Location = new System.Drawing.Point(30, 80);
+            this.labelStatusText.Name = "labelStatusText";
+            this.labelStatusText.Size = new System.Drawing.Size(100, 19);
+            this.labelStatusText.TabIndex = 2;
+            this.labelStatusText.Text = "Статус подписки:";
+
+            // 
+            // labelStartDateText
+            // 
+            this.labelStartDateText.AutoSize = true;
+            this.labelStartDateText.Location = new System.Drawing.Point(30, 110);
+            this.labelStartDateText.Name = "labelStartDateText";
+            this.labelStartDateText.Size = new System.Drawing.Size(100, 19);
+            this.labelStartDateText.TabIndex = 3;
+            this.labelStartDateText.Text = "Дата начала:";
+
+            // 
+            // labelEndDateText
+            // 
+            this.labelEndDateText.AutoSize = true;
+            this.labelEndDateText.Location = new System.Drawing.Point(30, 140);
+            this.labelEndDateText.Name = "labelEndDateText";
+            this.labelEndDateText.Size = new System.Drawing.Size(100, 19);
+            this.labelEndDateText.TabIndex = 4;
+            this.labelEndDateText.Text = "Дата окончания:";
+
             // 
             // txtClientID
             // 
             this.txtClientID.Depth = 0;
-            this.txtClientID.Hint = "Client ID";
+            this.txtClientID.Hint = "Идентификатор клиента";  // Переводим на русский
             this.txtClientID.Location = new System.Drawing.Point(140, 20);
             this.txtClientID.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtClientID.Name = "txtClientID";
@@ -43,13 +101,12 @@ namespace YourProject.Forms
             this.txtClientID.SelectionStart = 0;
             this.txtClientID.Size = new System.Drawing.Size(200, 23);
             this.txtClientID.TabIndex = 0;
-            this.txtClientID.UseSystemPasswordChar = false;
-            this.txtClientID.TextChanged += new System.EventHandler(this.TxtClientID_TextChanged);
+
             // 
             // txtSubscriptionType
             // 
             this.txtSubscriptionType.Depth = 0;
-            this.txtSubscriptionType.Hint = "Subscription Type";
+            this.txtSubscriptionType.Hint = "Тип подписки";  // Переводим на русский
             this.txtSubscriptionType.Location = new System.Drawing.Point(140, 50);
             this.txtSubscriptionType.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtSubscriptionType.Name = "txtSubscriptionType";
@@ -59,19 +116,20 @@ namespace YourProject.Forms
             this.txtSubscriptionType.SelectionStart = 0;
             this.txtSubscriptionType.Size = new System.Drawing.Size(200, 23);
             this.txtSubscriptionType.TabIndex = 1;
-            this.txtSubscriptionType.UseSystemPasswordChar = false;
-            this.txtSubscriptionType.TextChanged += new System.EventHandler(this.TxtSubscriptionType_TextChanged);
+
+
             // 
             // comboBoxStatus
             // 
             this.comboBoxStatus.FormattingEnabled = true;
             this.comboBoxStatus.Items.AddRange(new object[] {
-            "Active",
-            "Inactive"});
+            "Активен",
+            "Неактивен"});
             this.comboBoxStatus.Location = new System.Drawing.Point(140, 80);
             this.comboBoxStatus.Name = "comboBoxStatus";
             this.comboBoxStatus.Size = new System.Drawing.Size(200, 21);
             this.comboBoxStatus.TabIndex = 2;
+
             // 
             // dateTimePickerStartDate
             // 
@@ -79,6 +137,7 @@ namespace YourProject.Forms
             this.dateTimePickerStartDate.Name = "dateTimePickerStartDate";
             this.dateTimePickerStartDate.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerStartDate.TabIndex = 3;
+
             // 
             // dateTimePickerEndDate
             // 
@@ -86,6 +145,7 @@ namespace YourProject.Forms
             this.dateTimePickerEndDate.Name = "dateTimePickerEndDate";
             this.dateTimePickerEndDate.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerEndDate.TabIndex = 4;
+
             // 
             // btnSave
             // 
@@ -99,6 +159,7 @@ namespace YourProject.Forms
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+
             // 
             // btnCancel
             // 
@@ -112,27 +173,7 @@ namespace YourProject.Forms
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // labelStatus
-            // 
-            this.labelStatus.Location = new System.Drawing.Point(0, 0);
-            this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(100, 23);
-            this.labelStatus.TabIndex = 9;
-            // 
-            // labelStartDate
-            // 
-            this.labelStartDate.Location = new System.Drawing.Point(0, 0);
-            this.labelStartDate.Name = "labelStartDate";
-            this.labelStartDate.Size = new System.Drawing.Size(100, 23);
-            this.labelStartDate.TabIndex = 10;
-            // 
-            // labelEndDate
-            // 
-            this.labelEndDate.Location = new System.Drawing.Point(0, 0);
-            this.labelEndDate.Name = "labelEndDate";
-            this.labelEndDate.Size = new System.Drawing.Size(100, 23);
-            this.labelEndDate.TabIndex = 11;
+
             // 
             // AddSubscriptionForm
             // 
@@ -144,13 +185,15 @@ namespace YourProject.Forms
             this.Controls.Add(this.dateTimePickerEndDate);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.labelStatus);
-            this.Controls.Add(this.labelStartDate);
-            this.Controls.Add(this.labelEndDate);
+            this.Controls.Add(this.labelClientID);
+            this.Controls.Add(this.labelSubscriptionType);
+            this.Controls.Add(this.labelStatusText);
+            this.Controls.Add(this.labelStartDateText);
+            this.Controls.Add(this.labelEndDateText);
             this.Name = "AddSubscriptionForm";
-            this.Text = "Add Subscription";
+            this.Text = "Меню подписки";
             this.ResumeLayout(false);
-
+            this.PerformLayout();
         }
 
         // Обработчик для ограничения символов в поле ClientID

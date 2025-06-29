@@ -44,8 +44,8 @@ namespace YourProject.Forms
             comboBoxStatus.Items.AddRange(new object[] { "Active", "Inactive" });
 
             // Настроим TextBox подсказки
-            txtClientID.Hint = "Client ID";
-            txtSubscriptionType.Hint = "Subscription Type";
+            txtClientID.Hint = "Идентификатор клиента";
+            txtSubscriptionType.Hint = "Тип подписки";
         }
 
         private void btnSave_Click(object sender, EventArgs e)

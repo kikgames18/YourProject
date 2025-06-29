@@ -28,26 +28,12 @@ namespace YourProject.Forms
             this.labelAmount = new MaterialSkin.Controls.MaterialLabel();
             this.labelPaymentDate = new MaterialSkin.Controls.MaterialLabel();
             this.labelPaymentMethod = new MaterialSkin.Controls.MaterialLabel();
-
-            // 
-            // labelSubscriptionID
-            // 
-            this.labelSubscriptionID.AutoSize = true;
-            this.labelSubscriptionID.Depth = 0;
-            this.labelSubscriptionID.Font = new System.Drawing.Font("Roboto", 11F);
-            this.labelSubscriptionID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.labelSubscriptionID.Location = new System.Drawing.Point(30, 80);
-            this.labelSubscriptionID.MouseState = MaterialSkin.MouseState.HOVER;
-            this.labelSubscriptionID.Name = "labelSubscriptionID";
-            this.labelSubscriptionID.Size = new System.Drawing.Size(119, 19);
-            this.labelSubscriptionID.TabIndex = 0;
-            this.labelSubscriptionID.Text = "Subscription ID:";
-
+            this.SuspendLayout();
             // 
             // txtSubscriptionID
             // 
             this.txtSubscriptionID.Depth = 0;
-            this.txtSubscriptionID.Hint = "";
+            this.txtSubscriptionID.Hint = "Введите идентификатор подписки";
             this.txtSubscriptionID.Location = new System.Drawing.Point(170, 80);
             this.txtSubscriptionID.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtSubscriptionID.Name = "txtSubscriptionID";
@@ -60,26 +46,11 @@ namespace YourProject.Forms
             this.txtSubscriptionID.TabStop = false;
             this.txtSubscriptionID.UseSystemPasswordChar = false;
             this.txtSubscriptionID.TextChanged += new System.EventHandler(this.TxtSubscriptionID_TextChanged);
-
-            // 
-            // labelAmount
-            // 
-            this.labelAmount.AutoSize = true;
-            this.labelAmount.Depth = 0;
-            this.labelAmount.Font = new System.Drawing.Font("Roboto", 11F);
-            this.labelAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.labelAmount.Location = new System.Drawing.Point(30, 120);
-            this.labelAmount.MouseState = MaterialSkin.MouseState.HOVER;
-            this.labelAmount.Name = "labelAmount";
-            this.labelAmount.Size = new System.Drawing.Size(64, 19);
-            this.labelAmount.TabIndex = 2;
-            this.labelAmount.Text = "Amount:";
-
             // 
             // txtAmount
             // 
             this.txtAmount.Depth = 0;
-            this.txtAmount.Hint = "";
+            this.txtAmount.Hint = "Введите сумму";
             this.txtAmount.Location = new System.Drawing.Point(170, 120);
             this.txtAmount.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtAmount.Name = "txtAmount";
@@ -92,48 +63,11 @@ namespace YourProject.Forms
             this.txtAmount.TabStop = false;
             this.txtAmount.UseSystemPasswordChar = false;
             this.txtAmount.TextChanged += new System.EventHandler(this.TxtAmount_TextChanged);
-
-            // 
-            // labelPaymentDate
-            // 
-            this.labelPaymentDate.AutoSize = true;
-            this.labelPaymentDate.Depth = 0;
-            this.labelPaymentDate.Font = new System.Drawing.Font("Roboto", 11F);
-            this.labelPaymentDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.labelPaymentDate.Location = new System.Drawing.Point(30, 160);
-            this.labelPaymentDate.MouseState = MaterialSkin.MouseState.HOVER;
-            this.labelPaymentDate.Name = "labelPaymentDate";
-            this.labelPaymentDate.Size = new System.Drawing.Size(112, 19);
-            this.labelPaymentDate.TabIndex = 4;
-            this.labelPaymentDate.Text = "Payment Date:";
-
-            // 
-            // dateTimePickerPaymentDate
-            // 
-            this.dateTimePickerPaymentDate.Location = new System.Drawing.Point(170, 160);
-            this.dateTimePickerPaymentDate.Name = "dateTimePickerPaymentDate";
-            this.dateTimePickerPaymentDate.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePickerPaymentDate.TabIndex = 5;
-
-            // 
-            // labelPaymentMethod
-            // 
-            this.labelPaymentMethod.AutoSize = true;
-            this.labelPaymentMethod.Depth = 0;
-            this.labelPaymentMethod.Font = new System.Drawing.Font("Roboto", 11F);
-            this.labelPaymentMethod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.labelPaymentMethod.Location = new System.Drawing.Point(30, 200);
-            this.labelPaymentMethod.MouseState = MaterialSkin.MouseState.HOVER;
-            this.labelPaymentMethod.Name = "labelPaymentMethod";
-            this.labelPaymentMethod.Size = new System.Drawing.Size(127, 19);
-            this.labelPaymentMethod.TabIndex = 6;
-            this.labelPaymentMethod.Text = "Payment Method:";
-
             // 
             // txtPaymentMethod
             // 
             this.txtPaymentMethod.Depth = 0;
-            this.txtPaymentMethod.Hint = "";
+            this.txtPaymentMethod.Hint = "Введите метод платежа";
             this.txtPaymentMethod.Location = new System.Drawing.Point(170, 200);
             this.txtPaymentMethod.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtPaymentMethod.Name = "txtPaymentMethod";
@@ -146,7 +80,13 @@ namespace YourProject.Forms
             this.txtPaymentMethod.TabStop = false;
             this.txtPaymentMethod.UseSystemPasswordChar = false;
             this.txtPaymentMethod.TextChanged += new System.EventHandler(this.TxtPaymentMethod_TextChanged);
-
+            // 
+            // dateTimePickerPaymentDate
+            // 
+            this.dateTimePickerPaymentDate.Location = new System.Drawing.Point(170, 160);
+            this.dateTimePickerPaymentDate.Name = "dateTimePickerPaymentDate";
+            this.dateTimePickerPaymentDate.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerPaymentDate.TabIndex = 5;
             // 
             // btnSave
             // 
@@ -161,7 +101,6 @@ namespace YourProject.Forms
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-
             // 
             // btnCancel
             // 
@@ -176,7 +115,58 @@ namespace YourProject.Forms
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-
+            // 
+            // labelSubscriptionID
+            // 
+            this.labelSubscriptionID.AutoSize = true;
+            this.labelSubscriptionID.Depth = 0;
+            this.labelSubscriptionID.Font = new System.Drawing.Font("Roboto", 11F);
+            this.labelSubscriptionID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelSubscriptionID.Location = new System.Drawing.Point(30, 80);
+            this.labelSubscriptionID.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelSubscriptionID.Name = "labelSubscriptionID";
+            this.labelSubscriptionID.Size = new System.Drawing.Size(134, 19);
+            this.labelSubscriptionID.TabIndex = 0;
+            this.labelSubscriptionID.Text = "Номер подписки:";
+            // 
+            // labelAmount
+            // 
+            this.labelAmount.AutoSize = true;
+            this.labelAmount.Depth = 0;
+            this.labelAmount.Font = new System.Drawing.Font("Roboto", 11F);
+            this.labelAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelAmount.Location = new System.Drawing.Point(30, 120);
+            this.labelAmount.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelAmount.Name = "labelAmount";
+            this.labelAmount.Size = new System.Drawing.Size(69, 19);
+            this.labelAmount.TabIndex = 2;
+            this.labelAmount.Text = "Сумма:";
+            // 
+            // labelPaymentDate
+            // 
+            this.labelPaymentDate.AutoSize = true;
+            this.labelPaymentDate.Depth = 0;
+            this.labelPaymentDate.Font = new System.Drawing.Font("Roboto", 11F);
+            this.labelPaymentDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelPaymentDate.Location = new System.Drawing.Point(30, 160);
+            this.labelPaymentDate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelPaymentDate.Name = "labelPaymentDate";
+            this.labelPaymentDate.Size = new System.Drawing.Size(126, 19);
+            this.labelPaymentDate.TabIndex = 4;
+            this.labelPaymentDate.Text = "Дата платежа:";
+            // 
+            // labelPaymentMethod
+            // 
+            this.labelPaymentMethod.AutoSize = true;
+            this.labelPaymentMethod.Depth = 0;
+            this.labelPaymentMethod.Font = new System.Drawing.Font("Roboto", 11F);
+            this.labelPaymentMethod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelPaymentMethod.Location = new System.Drawing.Point(30, 200);
+            this.labelPaymentMethod.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelPaymentMethod.Name = "labelPaymentMethod";
+            this.labelPaymentMethod.Size = new System.Drawing.Size(125, 19);
+            this.labelPaymentMethod.TabIndex = 6;
+            this.labelPaymentMethod.Text = "Метод платежа:";
             // 
             // AddPaymentForm
             // 
@@ -192,7 +182,10 @@ namespace YourProject.Forms
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Name = "AddPaymentForm";
-            this.Text = "Add Payment";
+            this.Text = "Меню платежа";
+            this.Load += new System.EventHandler(this.AddPaymentForm_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
         }
 
         // Ограничение на количество символов

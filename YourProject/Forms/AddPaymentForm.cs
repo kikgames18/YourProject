@@ -97,5 +97,10 @@ namespace YourProject.Forms
                 txtPaymentMethod.Text = txtPaymentMethod.Text.Substring(0, 20);
             }
         }
+
+        private void AddPaymentForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

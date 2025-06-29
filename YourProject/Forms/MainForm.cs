@@ -24,10 +24,10 @@ namespace YourProject.Forms
             InitializeCustomStyles();
         }
 
+        private MaterialSkin.Controls.MaterialRaisedButton btnHelp;
+
         private void InitializeCustomStyles()
         {
-            dataGridViewClients.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewClients.ClearSelection();  // Это уберет выделение строки по умолчанию
 
             // Настройка фона
             this.BackColor = System.Drawing.Color.FromArgb(245, 245, 245);
@@ -55,6 +55,11 @@ namespace YourProject.Forms
             dataGridViewClients.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
             dataGridViewSubscriptions.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
             dataGridViewPayments.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
+
+            // Убираем чередование фона строк, делаем все строки белыми
+            dataGridViewClients.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.White;
+            dataGridViewSubscriptions.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.White;
+            dataGridViewPayments.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.White;
 
             // Настройка кнопок
             var buttonColor = System.Drawing.Color.FromArgb(72, 202, 228);
@@ -96,7 +101,30 @@ namespace YourProject.Forms
             btnAddSubscription.MouseLeave += (sender, e) => button_MouseLeave(sender, e, buttonColor);
             btnEditSubscription.MouseLeave += (sender, e) => button_MouseLeave(sender, e, buttonColor);
             btnDeleteSubscription.MouseLeave += (sender, e) => button_MouseLeave(sender, e, buttonColor);
+
+            this.btnHelp = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.SuspendLayout();
+
+            // 
+            // btnHelp
+            // 
+            this.btnHelp.Depth = 0;
+            this.btnHelp.Location = new System.Drawing.Point(this.ClientSize.Width - 100, 25); // Позиция кнопки в правом верхнем углу
+            this.btnHelp.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Primary = true;
+            this.btnHelp.Size = new System.Drawing.Size(100, 36);
+            this.btnHelp.TabIndex = 1;
+            this.btnHelp.Text = "Справка";
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);  // Привязываем обработчик клика
+            this.Controls.Add(this.btnHelp); // Добавляем кнопку на форму
+
+            this.ResumeLayout(false);
         }
+
+
+
 
 
 
@@ -108,6 +136,14 @@ namespace YourProject.Forms
                 button.BackColor = color; // Цвет при наведении
             }
         }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            // Открытие формы справочного отдела
+            HelpForm helpForm = new HelpForm();
+            helpForm.ShowDialog();  // Покажем справочный отдел как модальное окно
+        }
+
 
         private void button_MouseLeave(object sender, EventArgs e, System.Drawing.Color color)
         {
@@ -132,6 +168,12 @@ namespace YourProject.Forms
             var clients = _clientService.GetAllClients();
             dataGridViewClients.DataSource = clients;
 
+            // Убираем колонки "Subscription" и "Client"
+            if (dataGridViewClients.Columns.Contains("Subscription"))
+                dataGridViewClients.Columns.Remove("Subscription");
+            if (dataGridViewClients.Columns.Contains("Client"))
+                dataGridViewClients.Columns.Remove("Client");
+
             // Устанавливаем заголовки столбцов на русском
             dataGridViewClients.Columns["ClientID"].HeaderText = "Идентификатор клиента";
             dataGridViewClients.Columns["FirstName"].HeaderText = "Имя";
@@ -145,6 +187,12 @@ namespace YourProject.Forms
         {
             var subscriptions = _subscriptionService.GetAllSubscriptions();
             dataGridViewSubscriptions.DataSource = subscriptions;
+
+            // Убираем колонки "Subscription" и "Client"
+            if (dataGridViewSubscriptions.Columns.Contains("Subscription"))
+                dataGridViewSubscriptions.Columns.Remove("Subscription");
+            if (dataGridViewSubscriptions.Columns.Contains("Client"))
+                dataGridViewSubscriptions.Columns.Remove("Client");
 
             // Устанавливаем заголовки столбцов на русском
             dataGridViewSubscriptions.Columns["SubscriptionID"].HeaderText = "Идентификатор подписки";
@@ -160,6 +208,12 @@ namespace YourProject.Forms
             var payments = _paymentService.GetAllPayments();
             dataGridViewPayments.DataSource = payments;
 
+            // Убираем колонки "Subscription" и "Client"
+            if (dataGridViewPayments.Columns.Contains("Subscription"))
+                dataGridViewPayments.Columns.Remove("Subscription");
+            if (dataGridViewPayments.Columns.Contains("Client"))
+                dataGridViewPayments.Columns.Remove("Client");
+
             // Устанавливаем заголовки столбцов на русском
             dataGridViewPayments.Columns["PaymentID"].HeaderText = "Идентификатор платежа";
             dataGridViewPayments.Columns["SubscriptionID"].HeaderText = "Идентификатор подписки";
@@ -167,6 +221,7 @@ namespace YourProject.Forms
             dataGridViewPayments.Columns["PaymentDate"].HeaderText = "Дата платежа";
             dataGridViewPayments.Columns["PaymentMethod"].HeaderText = "Метод платежа";
         }
+
 
 
         // Закрытие формы
@@ -194,11 +249,25 @@ namespace YourProject.Forms
         {
             if (dataGridViewClients.SelectedRows.Count > 0)
             {
+                // Получаем ID выбранного клиента
                 var clientId = (int)dataGridViewClients.SelectedRows[0].Cells["ClientID"].Value;
                 var client = _clientService.GetAllClients().FirstOrDefault(c => c.ClientID == clientId);
-                var addClientForm = new AddClientForm(client);
-                addClientForm.ShowDialog();
-                LoadClients();
+
+                // Если клиент найден, открываем форму для редактирования
+                if (client != null)
+                {
+                    var addClientForm = new AddClientForm(client);
+                    addClientForm.ShowDialog();
+                    LoadClients(); // Перезагружаем список клиентов
+                }
+                else
+                {
+                    MessageBox.Show("Клиент не найден.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Пожалуйста, выберите клиента для редактирования.");
             }
         }
 
@@ -208,10 +277,21 @@ namespace YourProject.Forms
             if (dataGridViewClients.SelectedRows.Count > 0)
             {
                 var clientId = (int)dataGridViewClients.SelectedRows[0].Cells["ClientID"].Value;
-                _clientService.DeleteClient(clientId);
-                LoadClients();
+
+                // Подтверждаем удаление
+                var confirmResult = MessageBox.Show("Вы уверены, что хотите удалить этого клиента?", "Подтверждение удаления", MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    _clientService.DeleteClient(clientId); // Удаляем клиента
+                    LoadClients(); // Перезагружаем список клиентов
+                }
+            }
+            else
+            {
+                MessageBox.Show("Пожалуйста, выберите клиента для удаления.");
             }
         }
+
 
         // Добавление новой подписки
         private void btnAddSubscription_Click(object sender, EventArgs e)
